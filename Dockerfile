@@ -35,4 +35,5 @@ EXPOSE 53/udp 53/udp
 
 ENV SHELL /bin/bash
 
+
 ENTRYPOINT ["/opt/consul/startConsul.sh"]
