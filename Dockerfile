@@ -1,7 +1,9 @@
-FROM ubuntu:14.04
+FROM alpine
+
 MAINTAINER zborisha
 
-RUN apt-get install unzip curl -y
+RUN apk update && apk upgrade
+RUN apk add bash
 
 RUN mkdir -p /opt/consul/ui/
 RUN mkdir -p /opt/consul/data/
