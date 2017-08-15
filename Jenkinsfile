@@ -8,10 +8,12 @@ node {
           dockerApp = docker.build("025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx")
       }
       stage('Push Docker') {
+	withDockerRegistry([credentialsId: 'ecr:us-west-1:jenkins-user', url: '025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx
+']) {
           dockerApp.push("latest")
+	}
       }
      stage('Results') {
         currentBuild.result = 'SUCCESS'
-        slackSend color: '#3fb0ac', message: "sbt pipeline example (build #${currentBuild.number}) ended: ${currentBuild.result}"
     }
 }
