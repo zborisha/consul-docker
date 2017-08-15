@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 node {
       stage('Preparation') {
-	      git branch: 'master', url: 'git@github.com:zborisha/consul-docker.git'
+	      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/zborisha/consul-docker.git']]])
       }
       stage('Docker') {
           echo "building new docker"
