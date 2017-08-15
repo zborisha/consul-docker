@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 node {
- stage('Docker') {
+      stage('Preparation') {
+	      git branch: 'master', url: 'git@github.com:zborisha/consul-docker.git'
+      }
+      stage('Docker') {
           echo "building new docker"
           dockerApp = docker.build("025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx")
       }
