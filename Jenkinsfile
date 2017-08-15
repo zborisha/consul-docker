@@ -8,7 +8,7 @@ node {
           dockerApp = docker.build("025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx")
       }
       stage('Push Docker') {
-	withDockerRegistry([credentialsId: 'ecr:us-west-1:jenkins-user', url: '025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx']) {
+	withDockerRegistry([credentialsId: 'ecr:us-west-2:jenkins-user', url: '025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx']) {
           dockerApp.push("latest")
 	}
       }
