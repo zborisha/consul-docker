@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-node {
+node('ecs') {
       stage('Preparation') {
 	      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/zborisha/consul-docker.git']]])
       }
