@@ -5,7 +5,7 @@ node {
       }
       stage('Docker') {
           echo "building new docker"
-          dockerApp = docker.build("025647036827.dkr.ecr.us-west-2.amazonaws.com/nginx")
+          dockerApp = docker.build("025647036827.dkr.ecr.us-west-2.amazonaws.com/tango")
       }
       stage('Push Docker') {
           dockerApp.push("latest")
