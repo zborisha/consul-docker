@@ -5,7 +5,7 @@ node {
       }
       stage('Docker') {
           echo "building new docker"
-          dockerApp = docker.build(tango")
+          dockerApp = docker.build("tango")
       }
       stage('Push Docker') {
 	withDockerRegistry([credentialsId: 'ecr:us-west-2:jenkins-user', url: 'https://025647036827.dkr.ecr.us-west-2.amazonaws.com/tango']) {
